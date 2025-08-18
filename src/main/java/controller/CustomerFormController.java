@@ -1,16 +1,24 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.Customer;
+import service.CustomerController;
+import service.CustomerService;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.net.URL;
+import java.sql.*;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class CustomerFormController {
+public class CustomerFormController implements Initializable {
 
     @FXML
     private TableColumn colAddress;
@@ -39,9 +47,14 @@ public class CustomerFormController {
     @FXML
     private TableView txtTable;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadTable();
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
-
+        
     }
 
     @FXML
@@ -64,14 +77,32 @@ public class CustomerFormController {
 
     }
 
+
+
     private void loadTable(){
+
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bakehouse_db", "root", "sahan2004");
-            System.out.println(connection);
+            
+           CustomerService service = new CustomerController();
+            List<Customer> all = service.getAll();
+
+            colID.setCellValueFactory(new PropertyValueFactory<>("id"));
+            colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+            colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+            colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+
+            ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
+            all.forEach(customer -> {
+                customerObservableList.add(customer);
+        });
+            txtTable.setItems(customerObservableList);
+
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
     }
+
 
 }
