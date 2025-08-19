@@ -141,16 +141,6 @@ public class CustomerFormController implements Initializable {
         new Alert(Alert.AlertType.INFORMATION, "Table Reloaded.").show();
     }
 
-    @FXML
-    void btnSearchOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnUpdateOnAction(ActionEvent event) {
-
-    }
-
 
 
     private void loadTable(){

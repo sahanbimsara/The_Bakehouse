@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c6262" height="462.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
+      <Label layoutX="52.0" layoutY="37.0" style="-fx-background-color: #FF5733;" text="DashBoard" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Label>
+      <Button layoutX="35.0" layoutY="192.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" stylesheets="@../../../../../../../IND%20-%20Projects/Clothing-Store-My-Project/Clothing-Store/src/main/resources/css/style.css" text="User Register" />
+      <Button layoutX="35.0" layoutY="235.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" stylesheets="@../../../../../../../IND%20-%20Projects/Clothing-Store-My-Project/Clothing-Store/src/main/resources/css/style.css" text="Customer Details" />
+      <Button layoutX="35.0" layoutY="103.0" mnemonicParsing="false" onAction="#btnAddCustomerOnAction" prefHeight="35.0" prefWidth="143.0" stylesheets="@../../../../../../../IND%20-%20Projects/Clothing-Store-My-Project/Clothing-Store/src/main/resources/css/style.css" text="Add Customer" />
+      <ImageView fitHeight="22.0" fitWidth="38.0" layoutX="24.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         
+      </ImageView>
+      <Button layoutX="35.0" layoutY="148.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="35.0" prefWidth="143.0" stylesheets="@../../../../../../../IND%20-%20Projects/Clothing-Store-My-Project/Clothing-Store/src/main/resources/css/style.css" text="Place Order" />
+      <ImageView fitHeight="448.0" fitWidth="406.0" layoutX="183.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
