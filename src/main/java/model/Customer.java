@@ -13,7 +13,7 @@ import lombok.ToString;
 
 public class Customer {
 
-    private Integer id;
+    private String id;
 
     private String name;
 

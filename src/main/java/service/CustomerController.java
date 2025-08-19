@@ -15,7 +15,7 @@ public class CustomerController implements CustomerService{
         ResultSet resultSet = CrudUtil.execute("SELECT * FROM customer");
         while (resultSet.next())
             customerList.add(new Customer(
-                    resultSet.getInt(1),
+                    resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3),
                     resultSet.getString(4)
