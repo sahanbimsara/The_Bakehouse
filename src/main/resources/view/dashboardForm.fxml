@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c6262" height="462.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
-      <Label layoutX="52.0" layoutY="37.0" style="-fx-background-color: #FF5733;" text="DashBoard" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Label>
-      <Button layoutX="35.0" layoutY="192.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" stylesheets="@../../../../../../../IND%20-%20Projects/Clothing-Store-My-Project/Clothing-Store/src/main/resources/css/style.css" text="User Register" />
-      <Button layoutX="35.0" layoutY="235.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" stylesheets="@../../../../../../../IND%20-%20Projects/Clothing-Store-My-Project/Clothing-Store/src/main/resources/css/style.css" text="Customer Details" />
-      <Button layoutX="35.0" layoutY="103.0" mnemonicParsing="false" onAction="#btnAddCustomerOnAction" prefHeight="35.0" prefWidth="143.0" stylesheets="@../../../../../../../IND%20-%20Projects/Clothing-Store-My-Project/Clothing-Store/src/main/resources/css/style.css" text="Add Customer" />
-      <ImageView fitHeight="22.0" fitWidth="38.0" layoutX="24.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
-         
-      </ImageView>
-      <Button layoutX="35.0" layoutY="148.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="35.0" prefWidth="143.0" stylesheets="@../../../../../../../IND%20-%20Projects/Clothing-Store-My-Project/Clothing-Store/src/main/resources/css/style.css" text="Place Order" />
-      <ImageView fitHeight="448.0" fitWidth="406.0" layoutX="183.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+      <BorderPane layoutY="7.0" prefHeight="393.0" prefWidth="600.0">
+         <left>
+            <VBox prefHeight="338.0" prefWidth="119.0" style="-fx-background-color: #9C87D4;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="189.0" text="Button" />
+                  <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="189.0" text="Button" />
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <HBox prefHeight="55.0" prefWidth="600.0" style="-fx-background-color: #704FDB;" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>

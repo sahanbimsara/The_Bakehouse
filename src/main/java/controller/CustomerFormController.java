@@ -11,12 +11,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
-import service.CustomerController;
-import service.CustomerService;
 import util.CrudUtil;
 
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -144,11 +143,17 @@ public class CustomerFormController implements Initializable {
 
 
     private void loadTable(){
+        List<Customer> customerList = new ArrayList<>();
 
         try {
-            
-           CustomerService service = new CustomerController();
-            List<Customer> all = service.getAll();
+            ResultSet resultSet = CrudUtil.execute("SELECT * FROM customer");
+            while (resultSet.next())
+                customerList.add(new Customer(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4)
+                ));
 
             colID.setCellValueFactory(new PropertyValueFactory<>("id"));
             colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -156,7 +161,7 @@ public class CustomerFormController implements Initializable {
             colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
 
             ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
-            all.forEach(customer -> {
+            customerList.forEach( customer-> {
                 customerObservableList.add(customer);
         });
             txtTable.setItems(customerObservableList);
