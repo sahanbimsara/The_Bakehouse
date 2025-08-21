@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
+import service.CustomerServiceImpl;
 import util.CrudUtil;
 
 import java.net.URL;
@@ -80,14 +81,11 @@ public class CustomerFormController implements Initializable {
         Customer newCustomer = new Customer(id,name,address,phone);
 
         try {
-            boolean isAdded = CrudUtil.execute("INSERT INTO customer (customer_id, name ,address, phone_number) VALUES (?,?,?,?)",
-                    newCustomer.getId(),
-                    newCustomer.getName(),
-                    newCustomer.getAddress(),
-                    newCustomer.getPhone()
-                    );
+            CustomerServiceImpl customerService = new CustomerServiceImpl();
+            Boolean b = customerService.addCustomer(newCustomer);
 
-            if (isAdded){
+
+            if (b){
                 new Alert(Alert.AlertType.INFORMATION, "Customer Added Successfully! ").show();
                 loadTable();
             }else {
