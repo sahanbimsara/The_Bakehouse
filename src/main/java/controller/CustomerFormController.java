@@ -171,4 +171,28 @@ public class CustomerFormController implements Initializable {
 
     }
 
+    public void btnSearchOnAction(ActionEvent actionEvent) {
+        String idToSearch = txtId.getText();
+        if (idToSearch.isEmpty()){
+            new Alert(Alert.AlertType.WARNING,"Please enter a customer ID to Search.").show();
+            return;
+        }
+        try {
+            CustomerServiceImpl customerService = new CustomerServiceImpl();
+            customerService.searchById(idToSearch)
+
+            //populate
+
+                txtTable.getItems().stream()
+                        .filter(c -> c.getId().equals(idToSearch))
+                        .findFirst()
+                        .ifPresent(txtTable.getSelectionModel()::select);
+            } else {
+                new Alert(Alert.AlertType.INFORMATION,"Customer with ID "+ idToSearch+" Not Found").show();
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

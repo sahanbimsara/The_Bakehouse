@@ -11,7 +11,7 @@ public interface CustomerService {
 
     Boolean updateCustomer (Customer customer);
 
-    Customer searchById (String id);
+    Customer searchById (String id) throws SQLException;
 
     List<Customer> getAll ();
 
